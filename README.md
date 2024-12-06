@@ -1,9 +1,5 @@
 # Battleship
 
-### Enunciado do Jogo: **"Batalha Naval"**
-
-Você foi contratado para desenvolver uma versão simplificada do clássico jogo de Batalha Naval. O objetivo do jogo é afundar todos os navios do oponente antes que ele afunde os seus. O jogo acontece por turnos, onde cada jogador escolhe uma coordenada no tabuleiro adversário para tentar acertar um navio.
-
 #### Requisitos Funcionais:
 
 1. **Tabuleiro Simples**: O jogo usa um tabuleiro de 5x5 para cada jogador, representando o mar. 
@@ -31,5 +27,3 @@ Você foi contratado para desenvolver uma versão simplificada do clássico jogo
 
 - O jogo começa com um menu simples: "Novo Jogo" ou "Sair".
 - Instruções claras são mostradas no início para explicar como escolher coordenadas no tabuleiro.
-
-Essa versão do **Batalha Naval Simples** foca na diversão rápida e direta, com regras fáceis de entender e sem complexidade adicional.
