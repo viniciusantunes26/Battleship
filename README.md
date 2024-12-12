@@ -33,6 +33,9 @@ Este projeto foi desenvolvido utilizando o paradigma de Orientação a Objetos (
 4. **Template Method (Classe `BattleShipGame`):**  
    Define o esqueleto do fluxo do jogo (`setup`, `play` e `end_game`), permitindo que detalhes sejam implementados em subclasses (caso o jogo seja estendido).
 
+5. **Observer (Classe `Board`):**  
+   Notifica os jogadores sobre eventos importantes no tabuleiro, como acertos e erros nos ataques, garantindo maior interatividade e feedback.
+
 ## Pré-Requisitos
 
 - **Python 3.x**: É necessário ter o Python instalado (recomenda-se Python 3.7 ou superior).
