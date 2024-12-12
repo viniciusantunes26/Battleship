@@ -22,6 +22,7 @@ class Game:
         self.players = []
         self.winner = None
 
+
 # Estratégia de Ataque
 class AttackStrategy:
     def attack(self, opponent_board):
@@ -38,6 +39,7 @@ class BotAttack(AttackStrategy):
         print(f"Bot ataca na posição: {pos}")
         return opponent_board.receive_attack(pos)
 
+
 # Jogador e Fábrica de Jogadores
 class Player:
     def __init__(self, name, attack_strategy, is_bot=False):
@@ -45,10 +47,10 @@ class Player:
         self.attack_strategy = attack_strategy
         self.is_bot = is_bot
         self.board = Board()
+        self.board.attach(self)  # O jogador observa o tabuleiro
 
     def place_ship(self):
         if self.is_bot:
-            # Escolha aleatória para o bot
             pos = f"{random.randint(1, 5)}{random.choice('ABCDE')}"
             self.board.place_ship(pos)
         else:
@@ -61,6 +63,10 @@ class Player:
     def attack(self, opponent):
         return self.attack_strategy.attack(opponent.board)
 
+    def update(self, message):
+        print(f"{self.name}, atualização do tabuleiro: {message}")
+
+
 class PlayerFactory:
     @staticmethod
     def create_player(name, is_bot=False):
@@ -68,11 +74,20 @@ class PlayerFactory:
             return Player(name, BotAttack(), is_bot=True)
         return Player(name, HumanAttack())
 
-# Tabuleiro e Notificação de Ataques
+
+# Tabuleiro e Notificação de Ataques (Observer)
 class Board:
     def __init__(self):
         self.grid = [["~" for _ in range(5)] for _ in range(5)]
         self.ship_position = None
+        self.observers = []
+
+    def attach(self, observer):
+        self.observers.append(observer)
+
+    def notify(self, message):
+        for observer in self.observers:
+            observer.update(message)
 
     def display(self):
         print("   A B C D E")
@@ -91,13 +106,13 @@ class Board:
         if row is not None and col is not None:
             if pos == self.ship_position:
                 self.grid[row][col] = "O"
-                print("Acerto! O navio foi atingido.")
+                self.notify(f"Acerto em {pos}!")
                 return True
             else:
                 self.grid[row][col] = "X"
-                print("Água! Não há navio nesta posição.")
+                self.notify(f"Tiro na água em {pos}.")
                 return False
-        print("Posição inválida.")
+        self.notify(f"Posição inválida: {pos}.")
         return False
 
     def _parse_position(self, pos: str) -> Tuple[int, int]:
@@ -110,11 +125,12 @@ class Board:
             pass
         return None, None
 
+
 # Template Method para o Jogo
 class BattleShipGame:
     def setup(self):
         self.game = Game()
-        self.game.reset()  # Reinicia o estado do jogo ao iniciar uma nova partida
+        self.game.reset()
         mode = input("Escolha o modo de jogo (1 - Player vs Player, 2 - Player vs Bot): ")
         player1 = PlayerFactory.create_player("Jogador 1")
         player2 = PlayerFactory.create_player("Bot" if mode == "2" else "Jogador 2", is_bot=(mode == "2"))
@@ -149,6 +165,7 @@ class BattleShipGame:
         self.setup()
         self.play()
         self.end_game()
+
 
 # Executa o jogo
 if __name__ == "__main__":
