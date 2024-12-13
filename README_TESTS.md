@@ -66,3 +66,7 @@ Os testes estão organizados no arquivo `test_game.py` com os seguintes métodos
 | `test_place_ship`      | Posicionar navios                    | Testa se o posicionamento de navios no tabuleiro funciona corretamente.   |
 | `test_receive_attack`  | Realizar ataques                     | Testa a lógica de ataques no tabuleiro, incluindo acertos e erros.        |
 | `test_player_factory`  | Criação de jogadores                 | Testa a criação de jogadores usando o padrão Factory Method.              |
+
+Desenvolvido por:
+- Matheus Paes de Camargo Vieira
+- Vinícius Antunes Silva
