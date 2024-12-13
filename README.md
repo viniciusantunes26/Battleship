@@ -82,3 +82,7 @@ Durante a execução, siga as instruções apresentadas no terminal:
 - Se for jogador humano, insira a posição do seu navio conforme solicitado.
 - No modo humano, insira as posições para atacar (como "2C" ou "5A").
 - Ao final da partida, escolha se deseja jogar novamente.
+
+Desenvolvido por:
+- Matheus Paes de Camargo Vieira
+- Vinícius Antunes Silva
