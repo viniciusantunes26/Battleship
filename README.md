@@ -86,3 +86,4 @@ Durante a execução, siga as instruções apresentadas no terminal:
 Desenvolvido por:
 - Matheus Paes de Camargo Vieira
 - Vinícius Antunes Silva
+- Lucas Dias Custodio da Silva
