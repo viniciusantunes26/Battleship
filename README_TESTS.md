@@ -70,3 +70,4 @@ Os testes estão organizados no arquivo `test_game.py` com os seguintes métodos
 Desenvolvido por:
 - Matheus Paes de Camargo Vieira
 - Vinícius Antunes Silva
+- Lucas Dias Custodio da Silva
